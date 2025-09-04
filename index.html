@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendamento de Visitas - Usuários</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <button onclick="scrollToSection('agendamento')">Agendar Visita</button>
+  <button onclick="scrollToSection('visitas')">Visitas</button>
+  <div style="position:relative;">
+    <button id="ordenarBtn">Ordenar ▼</button>
+    <div id="ordenarMenu" class="ordenar-menu" style="display:none;">
+      <div data-sort="agendadas-recentes">Agendadas - Recentes</div>
+      <div data-sort="agendadas-antigas">Agendadas - Antigas</div>
+      <div data-sort="realizadas-recentes">Realizadas - Recentes</div>
+      <div data-sort="realizadas-antigas">Realizadas - Antigas</div>
+      <div data-sort="alfabetica">Ordem Alfabética</div>
+    </div>
+  </div>
+</header>
+
+<section id="agendamento">
+  <h2>Agendar Visita</h2>
+  <form id="visitaForm">
+    <input type="text" name="nome" placeholder="Nome completo" required>
+    <input type="date" name="nascimento" placeholder="Data de nascimento" required>
+    <input type="text" name="cpf" placeholder="CPF" required>
+    <input type="text" name="rua" placeholder="Rua" required>
+    <input type="text" name="bairro" placeholder="Bairro" required>
+    <input type="text" name="referencia" placeholder="Ponto de referência">
+    <input type="text" name="motivo" placeholder="Motivo da visita" required>
+    <input type="text" name="dificuldades" placeholder="Dificuldades apresentadas">
+    <input type="text" name="observacoes" placeholder="Observações">
+    <input type="text" name="responsavel" placeholder="Responsável pelo agendamento" required>
+    <button type="submit">Agendar</button>
+  </form>
+</section>
+
+<section id="visitas">
+  <h2>Lista de Visitas</h2>
+
+  <div class="busca-filtros">
+    <input type="text" id="searchInput" placeholder="Buscar por nome" style="flex:1; padding:8px; border-radius:8px; border:1px solid #cfd8e3;">
+  </div>
+
+  <div class="filter-buttons">
+    <button class="bairro-btn" data-bairro="">Todos</button>
+    <button class="bairro-btn" data-bairro="Santa Maria">Santa Maria</button>
+    <button class="bairro-btn" data-bairro="Zona Rural">Zona Rural</button>
+    <button class="bairro-btn" data-bairro="Poeirão">Poeirão</button>
+  </div>
+
+  <div id="visitasContainer"></div>
+</section>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
